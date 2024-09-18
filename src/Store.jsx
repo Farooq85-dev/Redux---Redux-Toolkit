@@ -1,10 +1,12 @@
+// Create Store
 import { configureStore } from "@reduxjs/toolkit";
-import { customReducer } from "./Reducer";
+import { MarksReducer } from "./reducer";
 
-const Store = configureStore({
+const store = configureStore({
+  //Inserting Reducer
   reducer: {
-    a: customReducer,
+    MarksReducer,
   },
 });
 
-export { Store };
+export { store };

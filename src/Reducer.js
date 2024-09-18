@@ -1,19 +1,18 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { increment, incrementByValue, decrement } from "./Actions";
+import { increment, decrement } from "./Actions";
 
 const initialState = {
-  c: 100,
+  marks: 10,
 };
 
-export const customReducer = createReducer(initialState, (builder) => {
+const MarksReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(increment, (state) => {
-      state.c += 1;
-    })
-    .addCase(incrementByValue, (state, action) => {
-      state.c += action.payload;
+    .addCase(increment, (state, action) => {
+      state.marks += 1;
     })
     .addCase(decrement, (state) => {
-      state.c -= 1;
+      state.marks -= 1;
     });
 });
+
+export { MarksReducer };
